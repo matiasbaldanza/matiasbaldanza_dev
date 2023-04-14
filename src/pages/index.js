@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google'
 import Image from 'next/image'
 
 // Components
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
 import Footer from '@/components/Footer'
 
 // Utils
@@ -24,10 +24,16 @@ export default function Home({ articlesData }) {
     <Layout>
       {console.log(articlesData)}
       <ul className='divide-y-2'>
-        { articlesData.length === 0 && <div>No articles found.</div> }
+        { articlesData.length === 0 && 
+          <div className='grid h-min-screen place-content-center'>
+            No articles published yet!
+          </div> }
         { articlesData.map( ({ slug, title, publishedAt }) => {
           return (
-            <li className='flex justify-between p-4 gap-2'>
+            <li 
+              key={slug}
+              className='flex justify-between p-4 gap-2'
+            >
               {title}<span className='text-right min-w-max'>{publishedAt}</span>
             </li>
           )
