@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { remark } from 'remark'
+import html from 'remark-html'
 
 const articlesPath = path.join(process.cwd(), 'content')
 const articleValidExtensions = /\.md$|\.mdx$/
@@ -49,6 +51,28 @@ export function getArticlesSlugs() {
     })
 }
 
+export async function getArticleContent(slug) {
+    const filePath = path.join(articlesPath, `${slug}.mdx`)
+    const fileContents = fs.readFileSync(filePath, 'utf8')
+
+    const metaData = matter(fileContents)
+    
+    const rawArticleContent = await remark()
+        .use(html)
+        .process(metaData.content)
+
+    const articleContentHtml = rawArticleContent.toString()
+
+    return {
+        slug, 
+        articleContentHtml,
+        ...metaData.data,
+    }
+
+    // TODO: error handling for missing or invalid file
+}
+
+
 function getFileNames() {
     const fileNames = fs.readdirSync(articlesPath)
         .filter( (fileName) => { return fileName.match(articleValidExtensions, '') })
@@ -62,4 +86,5 @@ function getFileNames() {
 function getSlug(fileName) {
     return fileName.replace(articleValidExtensions, '')
 }
+
 

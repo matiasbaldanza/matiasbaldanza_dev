@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Components
 import Layout from '@/components/Layout'
@@ -22,7 +23,6 @@ export async function getStaticProps() {
 export default function Home({ articlesData }) {
   return (
     <Layout>
-      {console.log(articlesData)}
       <ul className='divide-y-2'>
         { articlesData.length === 0 && 
           <div className='grid h-min-screen place-content-center'>
@@ -30,12 +30,16 @@ export default function Home({ articlesData }) {
           </div> }
         { articlesData.map( ({ slug, title, publishedAt }) => {
           return (
-            <li 
-              key={slug}
-              className='flex justify-between p-4 gap-2'
+            <Link
+              href={`${slug}`}
             >
-              {title}<span className='text-right min-w-max'>{publishedAt}</span>
-            </li>
+              <li
+                key={slug}
+                className='flex justify-between p-4 gap-2 hover:bg-gray-100'
+              >
+                {title}<span className='text-right min-w-max'>{publishedAt}</span>
+              </li>
+            </Link>
           )
           })}
       </ul>
