@@ -10,7 +10,7 @@ export default function Layout({ children }) {
             <main className='max-h-screen flex-1'>   
                 {children}
             </main>
-            
+            <Footer />
         </div>
     )
 }
