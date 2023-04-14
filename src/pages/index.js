@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 // Components
 import Layout from '@/components/Layout'
-import Footer from '@/components/Footer'
 
 // Utils
 import { getArticlesDataSorted } from '@/utils/articles'
