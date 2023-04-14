@@ -6,17 +6,15 @@ const articlesPath = path.join(process.cwd(), 'content')
 const articleValidExtensions = /\.md$|\.mdx$/
 const ignoreFileNames = /^_[^/]*$/
 
-// TODO: handle error - directory empty
-
 export function getArticlesDataSorted() {
     // Get file names under /content
     const fileNames = fs.readdirSync(articlesPath)
         .filter( (fileName) => { return fileName.match(articleValidExtensions, '') })
         .filter( (fileName) => { return !fileName.match(ignoreFileNames, '') })
 
-    // Extract filenames without extension
-    if (fileNames.length === 0) return {}
-
+    if (!fileNames) return []
+        
+        // Extract filenames without extension
     const articlesData = fileNames.map( (fileName) => {
         // Extract slug from filename
         const slug = fileName.replace(articleValidExtensions, '')
