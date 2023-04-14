@@ -4,17 +4,15 @@ import matter from 'gray-matter'
 
 const articlesPath = path.join(process.cwd(), 'content')
 const articleValidExtensions = /\.md$|\.mdx$/
+const ignoreFileNames = /^_[^/]*$/
 
 // TODO: handle error - directory empty
-// TODO: handle error - subdirectories cannot be read as files
 
 export function getArticlesDataSorted() {
     // Get file names under /content
-    const fileNames = fs.readdirSync(articlesPath).filter( (fileName) => {
-        return fileName.match(articleValidExtensions, '')
-    })
-
-    console.log(fileNames)
+    const fileNames = fs.readdirSync(articlesPath)
+        .filter( (fileName) => { return fileName.match(articleValidExtensions, '') })
+        .filter( (fileName) => { return !fileName.match(ignoreFileNames, '') })
 
     // Extract filenames without extension
     if (fileNames.length === 0) return {}
