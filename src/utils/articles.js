@@ -7,17 +7,11 @@ const articleValidExtensions = /\.md$|\.mdx$/
 const ignoreFileNames = /^_[^/]*$/
 
 export function getArticlesDataSorted() {
-    // Get file names under /content
-    const fileNames = fs.readdirSync(articlesPath)
-        .filter( (fileName) => { return fileName.match(articleValidExtensions, '') })
-        .filter( (fileName) => { return !fileName.match(ignoreFileNames, '') })
+    const fileNames = getFileNames()
 
-    if (!fileNames) return []
-        
-        // Extract filenames without extension
+    // Extract filenames without extension
     const articlesData = fileNames.map( (fileName) => {
-        // Extract slug from filename
-        const slug = fileName.replace(articleValidExtensions, '')
+        const slug = getSlug(fileName)
 
         // Extract metadata from each file (title, date, topic, tags, etc.)
         const filePath = path.join(articlesPath, fileName)
@@ -30,7 +24,7 @@ export function getArticlesDataSorted() {
             slug,
             ...matterResult.data,
         }
-    })
+        })
 
     // Sort by date (newest first)
     articlesData.sort( (a, b) => {
@@ -43,6 +37,29 @@ export function getArticlesDataSorted() {
     return articlesData
 }
 
-export function getArticleSlugs() {
+export function getArticlesSlugs() {
+    const fileNames = getFileNames()
 
+    return fileNames.map( (fileName) => {
+        return {
+            params: {
+                slug: getSlug(fileName),
+            }
+        }
+    })
 }
+
+function getFileNames() {
+    const fileNames = fs.readdirSync(articlesPath)
+        .filter( (fileName) => { return fileName.match(articleValidExtensions, '') })
+        .filter( (fileName) => { return !fileName.match(ignoreFileNames, '') })
+
+    if (!fileNames) return []
+
+    return fileNames
+}
+
+function getSlug(fileName) {
+    return fileName.replace(articleValidExtensions, '')
+}
+
