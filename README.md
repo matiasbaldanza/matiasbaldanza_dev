@@ -7,7 +7,7 @@ My personal site (portfolio, blog)
 - [ ] Layout
 
   - [x] Header con secciones (nav)
-  - [ ] Footer personalizado
+  - [x] Footer personalizado
     - [ ] Call to action y links
 
 - [ ] Secciones
