@@ -2,7 +2,7 @@ export default function ArticleContent({ content }) {
   return (
     <div 
      className='
-        [&>p]:my-2 text-lg
+        prose prose-lg prose-slate
         '
      dangerouslySetInnerHTML={{ __html: content}}></div>
   )
