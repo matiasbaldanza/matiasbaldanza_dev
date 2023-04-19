@@ -1,7 +1,6 @@
 import Layout from "@/components/Layout"
 import ArticleContent from "@/components/ArticleContent"
 import { getArticlesSlugs, getArticleContent } from "@/utils/articles" 
-import { format } from "date-fns" 
 
 
 export default function Article({ articleContent }) {
