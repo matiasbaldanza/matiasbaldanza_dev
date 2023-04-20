@@ -24,7 +24,7 @@ export async function getStaticProps() {
 export default function Home({ articlesData }) {
   return (
     <Layout>
-      <ul className='divide-y-2'>
+      <ul className='border-y-2 flex flex-col selection:divide-gray-200 divide-y-2'>
         { articlesData.length === 0 && 
           <div className='grid h-min-screen place-content-center'>
             No articles published yet!
@@ -41,7 +41,7 @@ export default function Home({ articlesData }) {
                 <Balancer>{title}</Balancer>
                 <DateLabel 
                   className='text-right min-w-max text-sm text-gray-500'
-                  options={{ year: 'numeric', month: 'short', day: 'numeric' }}
+                  options={{ month: 'short', day: 'numeric' }}
                 >
                   {publishedAt}
                 </DateLabel>
