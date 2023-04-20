@@ -2,6 +2,7 @@ import Layout from "@/components/Layout"
 import ArticleContent from "@/components/ArticleContent"
 import DateLabel from "@/components/DateLabel"
 import { getArticlesSlugs, getArticleContent } from "@/utils/articles" 
+import Balancer from "react-wrap-balancer"
 
 export default function Article({ articleContent }) {
 
@@ -12,7 +13,9 @@ export default function Article({ articleContent }) {
         <div className="text-center mb-10">
             <h1
                 className="text-4xl font-bold mb-4"
-            >{articleContent.title}</h1>
+            >
+                <Balancer>{articleContent.title}</Balancer>
+            </h1>
             <DateLabel
                 className="text-gray-500"
                 options={dateFormatOptions}

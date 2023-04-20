@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import DateLabel from '@/components/DateLabel'
+import Balancer from 'react-wrap-balancer'
 
 // Components
 import Layout from '@/components/Layout'
@@ -35,9 +36,9 @@ export default function Home({ articlesData }) {
             >
               <li
                 key={slug}
-                className='flex justify-between p-4 gap-2 hover:bg-gray-100 items-center'
+                className='flex justify-between p-4 gap-10 hover:bg-gray-100 items-center'
               >
-                {title}
+                <Balancer>{title}</Balancer>
                 <DateLabel 
                   className='text-right min-w-max text-sm text-gray-500'
                   options={{ year: 'numeric', month: 'short', day: 'numeric' }}
