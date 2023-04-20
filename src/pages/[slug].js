@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout"
 import ArticleContent from "@/components/ArticleContent"
+import DateLabel from "@/components/DateLabel"
 import { getArticlesSlugs, getArticleContent } from "@/utils/articles" 
-
 
 export default function Article({ articleContent }) {
 
@@ -13,10 +13,12 @@ export default function Article({ articleContent }) {
             <h1
                 className="text-4xl font-bold mb-4"
             >{articleContent.title}</h1>
-            <time
+            <DateLabel
                 className="text-gray-500"
-            >{new Date(articleContent.publishedAt)
-                .toLocaleDateString('es', dateFormatOptions)}</time>
+                options={dateFormatOptions}
+            >
+                {articleContent.publishedAt}
+            </DateLabel>
         </div>
         <ArticleContent content={articleContent.articleContentHtml}/>
     </Layout>
