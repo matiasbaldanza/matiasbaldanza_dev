@@ -10,7 +10,7 @@ export default function Layout({ children }) {
             <main className='flex-1 w-full lg:max-w-3xl'>   
                 {children}
             </main>
-            <Footer />
+            <Footer className='w-full'/>
         </div>
     )
 }
