@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+import DateLabel from '@/components/DateLabel'
 
 // Components
 import Layout from '@/components/Layout'
@@ -34,9 +35,15 @@ export default function Home({ articlesData }) {
             >
               <li
                 key={slug}
-                className='flex justify-between p-4 gap-2 hover:bg-gray-100'
+                className='flex justify-between p-4 gap-2 hover:bg-gray-100 items-center'
               >
-                {title}<span className='text-right min-w-max'>{publishedAt}</span>
+                {title}
+                <DateLabel 
+                  className='text-right min-w-max text-sm text-gray-500'
+                  options={{ year: 'numeric', month: 'short', day: 'numeric' }}
+                >
+                  {publishedAt}
+                </DateLabel>
               </li>
             </Link>
           )
