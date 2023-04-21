@@ -4,7 +4,7 @@ import Balancer from "react-wrap-balancer"
 
 export default function Footer({ ...props }) {
     const baseStyles = 'mt-20 mb-6 flex flex-col gap-4'
-    const styles = `${props.className || ''} ${baseStyles}`.trim()
+    const styles = clsx(baseStyles, props.className)
     
     return (
         <footer className={styles}>
