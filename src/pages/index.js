@@ -24,7 +24,7 @@ export async function getStaticProps() {
 export default function Home({ articlesData }) {
   return (
     <Layout>
-      <ul className='border-y-2 flex flex-col selection:divide-gray-200 divide-y-2'>
+      <ul className='flex flex-col divide-y-2 border-y-2 selection:divide-gray-200'>
         { articlesData.length === 0 && 
           <div className='grid h-min-screen place-content-center'>
             No articles published yet!
@@ -32,15 +32,16 @@ export default function Home({ articlesData }) {
         { articlesData.map( ({ slug, title, publishedAt }) => {
           return (
             <Link
+              key={slug}
               href={`${slug}`}
             >
               <li
-                key={slug}
-                className='flex justify-between p-4 gap-10 hover:bg-gray-100 items-center'
+                className='flex items-center justify-between gap-10 p-4 hover:bg-gray-100'
               >
                 <Balancer>{title}</Balancer>
+                {/* TODO: split by year or show year for articles not of current year */}
                 <DateLabel 
-                  className='text-right min-w-max text-sm text-gray-500'
+                  className='text-sm text-right text-gray-500 min-w-max'
                   options={{ month: 'short', day: 'numeric' }}
                 >
                   {publishedAt}
@@ -51,6 +52,8 @@ export default function Home({ articlesData }) {
           })}
       </ul>
     </Layout>
+
+    
 
   )
 }

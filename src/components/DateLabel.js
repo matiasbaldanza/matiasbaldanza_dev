@@ -7,7 +7,8 @@ function DateLabel({ ...props }) {
     <time
         className={props.className}
     > 
-        {new Date(props.children).toLocaleDateString('es', props.options)}
+        {new Date(props.children)
+              .toLocaleDateString('es', { ...props.options, timeZone: 'UTC'})}
     </time>
   )
 }
