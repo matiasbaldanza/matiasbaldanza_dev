@@ -3,7 +3,6 @@ import React from 'react'
 function DateLabel({ ...props }) {
   if (!props.children) return null
 
-  console.log(props.className)
   return (
     <time
         className={props.className}
