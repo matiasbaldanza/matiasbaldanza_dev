@@ -20,7 +20,7 @@ export default function Footer({ ...props }) {
             </p>
             <p>
                 <Balancer>
-                    Los <time datetime='19:00-20:00-03:00'>miércoles de 19:00 a 20:00 🇦🇷 (GMT-3)</time> facilito con otros mods una sesión de conversación en el canal de voz #English <Link external href='https://discord.goncy.dev'>en el Discord de @Goncy.</Link>
+                    Los <time dateTime='19:00-20:00-03:00'>miércoles de 19:00 a 20:00 🇦🇷 (GMT-3)</time> facilito con otros mods una sesión de conversación en el canal de voz #English <Link external href='https://discord.goncy.dev'>en el Discord de @Goncy.</Link>
                 </Balancer>
             </p>
         </footer>
