@@ -28,15 +28,11 @@ export function getArticlesDataSorted() {
         }
         })
 
-    // Sort by date (newest first)
-    articlesData.sort( (a, b) => {
-        if (a.date < b.date) {
-            return 1
-        } else {
-            return -1
-        }})
     // Return sorted array
-    return articlesData
+    return articlesData.sort( (a, b) => 
+        b.publishedAt.localeCompare(a.publishedAt)
+        // new Date(b.publishedAt) - new Date(a.publishedAt)
+    )
 }
 
 export function getArticlesSlugs() {
