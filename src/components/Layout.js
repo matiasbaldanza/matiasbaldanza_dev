@@ -4,13 +4,13 @@ import Footer from "./Footer";
 
 export default function Layout({ children }) {
     return (
-        <div className='container mx-auto px-6 lg:max-w-5xl flex flex-col min-h-screen text-lg items-center'>
+        <div className='container flex flex-col items-center min-h-screen px-6 mx-auto text-lg lg:max-w-5xl'>
             <Header />
             
-            <main className='flex-1 w-full lg:max-w-3xl'>   
+            <main className='flex flex-col flex-1 w-full lg:max-w-3xl'>   
                 {children}
             </main>
-            <Footer className='w-full'/>
+            <Footer />
         </div>
     )
 }

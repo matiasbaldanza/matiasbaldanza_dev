@@ -10,9 +10,9 @@ export default function Article({ articleContent }) {
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
 
     return <Layout>
-        <div className="text-center mb-10">
+        <div className="mb-10 text-center">
             <h1
-                className="text-4xl font-bold mb-4"
+                className="mb-4 text-4xl font-bold"
             >
                 <Balancer>{articleContent.title}</Balancer>
             </h1>
@@ -36,7 +36,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log(params)
     const articleContent = await getArticleContent(params.slug)
     return {
         props: {
