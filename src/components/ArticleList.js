@@ -10,7 +10,7 @@ function ArticleList({ articlesData }) {
         </div> }
         <PaginatedArticles 
             items={articlesData}
-            itemsPerPage={10}
+            itemsPerPage={5}
         />
       </>
   )
