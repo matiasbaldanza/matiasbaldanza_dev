@@ -2,10 +2,10 @@ import React from 'react'
 import Link from 'next/link'
 import DateLabel from '@/components/DateLabel'
 import Balancer from 'react-wrap-balancer'
-import PaginationNav from './PaginationNav'
+import PaginationNav from '../PaginationNav/PaginationNav'
 
 
-function PaginatedArticles({ items, itemsPerPage }) {
+function PaginatedArticleList({ items, itemsPerPage }) {
   const [currentPage, setCurrentPage] = React.useState(1)
   
   const numPages = Math.ceil(items.length / itemsPerPage)
@@ -45,10 +45,10 @@ function PaginatedArticles({ items, itemsPerPage }) {
         numPages={numPages}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        maxButtons={10}
+        maxButtons={5}
       />
     </>
   )
 }
 
-export default PaginatedArticles
+export default PaginatedArticleList

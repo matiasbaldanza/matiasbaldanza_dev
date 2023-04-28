@@ -1,5 +1,5 @@
 import React from 'react'
-import PaginatedArticles from './PaginatedArticles'
+import PaginatedArticleList from './PaginatedArticleList/PaginatedArticleList'
 
 function ArticleList({ articlesData }) {
   return (
@@ -8,9 +8,9 @@ function ArticleList({ articlesData }) {
         <div className='grid h-min-screen place-content-center'>
           No articles published yet!
         </div> }
-        <PaginatedArticles 
+        <PaginatedArticleList 
             items={articlesData}
-            itemsPerPage={5}
+            itemsPerPage={3}
         />
       </>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import clsx from "clsx"
 
 function PaginationButton({ disabled = false, onClick, ...props }) {
   return (
