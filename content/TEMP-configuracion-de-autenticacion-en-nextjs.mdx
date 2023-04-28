@@ -1,0 +1,108 @@
+---
+title: "Configuración de autenticación en Next.js"
+publishedAt: "2022-11-24"
+summary: "Aprende a configurar la autenticación en tus aplicaciones Next.js utilizando el popular paquete NextAuth.js, para proporcionar un sistema de inicio de sesión seguro y fácil de usar en tus proyectos."
+category: "nextjs"
+lang: "es"
+---
+
+La autenticación es una parte crucial de muchas aplicaciones web. En este artículo, te mostraremos cómo configurar la autenticación en tus aplicaciones Next.js utilizando NextAuth.js, un paquete popular y fácil de usar que proporciona un sistema de inicio de sesión seguro.
+
+## Instalar NextAuth.js
+
+Para comenzar, instala NextAuth.js y sus dependencias en tu proyecto Next.js.
+
+```bash
+npm install next-auth
+```
+
+## Crear una página de API para NextAuth.js
+
+NextAuth.js utiliza una página de API para manejar la autenticación. Crea un nuevo archivo auth.js en la carpeta pages/api de tu proyecto Next.js y agrega el siguiente código:
+
+```javascript
+import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
+
+export default NextAuth({
+  providers: [
+    Providers.GitHub({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    }),
+  ],
+});
+```
+
+## Configurar el archivo .env.local
+
+Agrega tus credenciales de la aplicación GitHub en el archivo .env.local en la raíz de tu proyecto Next.js.
+
+```makefile
+GITHUB_CLIENT_ID=your_client_id
+GITHUB_CLIENT_SECRET=your_client_secret
+```
+
+## Importar y utilizar el hook useSession
+
+Para acceder a la sesión del usuario en tus componentes, importa el hook useSession de NextAuth.js y utilízalo en tus componentes.
+
+```jsx
+import { signIn, signOut, useSession } from "next-auth/client";
+
+function Navbar() {
+  const [session, loading] = useSession();
+
+  return (
+    <nav>
+      {/* ... */}
+      {session ? (
+        <>
+          <span>Bienvenido, {session.user.name}</span>
+          <button onClick={() => signOut()}>Cerrar sesión</button>
+        </>
+      ) : (
+        <button onClick={() => signIn()}>Iniciar sesión</button>
+      )}
+    </nav>
+  );
+}
+```
+
+## Proteger rutas
+
+Para proteger rutas y asegurar que solo los usuarios autenticados puedan acceder a ciertas páginas, puedes utilizar el hook useSession y redirigir al usuario si no está autenticado.
+
+```jsx
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/client";
+
+function ProtectedPage() {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
+  if (!session) {
+    router.push("/login");
+    return null;
+  }
+
+  return (
+    <div>
+      <h1>Página protegida</h1>
+      {/* ... */}
+    </div>
+  );
+}
+```
+
+Al seguir estos pasos, habrás configurado la autenticación en tu aplicación Next.js utilizando NextAuth.js. Esta configuración proporciona un sistema de inicio de sesión seguro y fácil de usar en tus proyectos.
+
+Además de utilizar proveedores de autenticación externos como GitHub, NextAuth.js admite una amplia gama de proveedores y opciones de personalización. Puedes explorar más sobre los proveedores disponibles y cómo configurarlos en [la documentación oficial de NextAuth.js](https://next-auth.js.org/providers).
+
+Recuerda que también puedes personalizar el proceso de inicio de sesión, agregar roles y permisos, y ajustar otros aspectos de la autenticación según las necesidades de tu proyecto. NextAuth.js es altamente personalizable y se integra perfectamente con Next.js, lo que facilita la implementación de autenticación en tus aplicaciones.
+
+En resumen, configurar la autenticación en tus aplicaciones Next.js utilizando NextAuth.js te permite ofrecer una experiencia de usuario segura y moderna. Con un proceso de inicio de sesión fácil de usar y la capacidad de integrar con múltiples proveedores de autenticación, tus aplicaciones estarán bien equipadas para satisfacer las necesidades de seguridad y autenticación de tus usuarios.

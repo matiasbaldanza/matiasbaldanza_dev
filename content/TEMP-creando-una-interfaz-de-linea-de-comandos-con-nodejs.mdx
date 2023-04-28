@@ -1,0 +1,85 @@
+---
+title: "Creando una interfaz de línea de comandos con Node.js"
+publishedAt: "2022-10-18"
+summary: "Aprende a crear una interfaz de línea de comandos (CLI) utilizando Node.js, permitiéndote desarrollar herramientas personalizadas y simplificar las tareas en tus proyectos de desarrollo."
+category: "cli"
+lang: "es"
+---
+
+Crear una interfaz de línea de comandos (CLI) con Node.js te permite desarrollar herramientas personalizadas y simplificar las tareas en tus proyectos de desarrollo. En este artículo, aprenderás cómo construir una CLI básica utilizando Node.js y cómo utilizarla para automatizar tareas y mejorar tu flujo de trabajo.
+
+## 1. Configura tu entorno:
+
+Para comenzar a crear una CLI con Node.js, asegúrate de tener instalado Node.js en tu sistema. Luego, crea un nuevo directorio para tu proyecto e inicializa un archivo `package.json`.
+
+```bash
+mkdir mi-cli
+cd mi-cli
+npm init -y
+```
+
+## 2. Crea un archivo de ejecución:
+
+A continuación, crea un archivo `index.js` en la raíz de tu proyecto. Este archivo será el punto de entrada de tu CLI.
+
+```javascript
+#!/usr/bin/env node
+
+console.log("¡Hola, CLI!");
+```
+
+La primera línea, `#!/usr/bin/env node`, es un comentario especial llamado shebang que le indica al sistema operativo que debe ejecutar este archivo con Node.js.
+
+## 3. Configura el archivo `package.json`:
+
+Agrega la siguiente propiedad a tu archivo package.json:
+
+```json
+Copy code
+{
+"bin": {
+"mi-cli": "./index.js"
+}
+}
+```
+
+Esta propiedad le indica a npm que cuando instales tu paquete globalmente, debe crear un enlace simbólico al archivo index.js con el nombre `mi-cli`.
+
+## 4. Instala y prueba tu CLI:
+
+Para probar tu CLI, instálala globalmente utilizando npm.
+
+```bash
+npm install -g
+```
+
+Ahora puedes ejecutar tu CLI utilizando el comando `mi-cli`.
+
+```bash
+mi-cli
+```
+
+Deberías ver el mensaje `"¡Hola, CLI!"` en la salida.
+
+## 5. Amplía tu CLI:
+
+Ahora que tienes una CLI básica, puedes agregar funcionalidad según sea necesario. Por ejemplo, puedes utilizar argumentos de línea de comandos para proporcionar opciones y acciones adicionales.
+
+```javascript
+#!/usr/bin/env node
+
+const args = process.argv.slice(2);
+
+switch (args[0]) {
+  case "saludar":
+    console.log(`¡Hola, ${args[1]}!`);
+    break;
+  default:
+    console.log("¡Hola, CLI!");
+    break;
+}
+```
+
+Ahora, si ejecutas mi-cli saludar mundo, verás `"¡Hola, mundo!"` en la salida.
+
+Crear una CLI con Node.js es una excelente manera de simplificar las tareas en tus proyectos de desarrollo y mejorar tu flujo de trabajo. Con una CLI personalizada, puedes automatizar tareas comunes, interactuar con tu código de manera más eficiente y proporcionar una interfaz intuitiva para otros desarrolladores que utilicen tus herramientas.
