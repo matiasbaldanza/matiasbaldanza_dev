@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import clsx from "clsx";
-import IconSun from "./IconSun";
-import IconMoon from  "./IconMoon";
+import IconSun from "./IconSun"
+import IconMoon from  "./IconMoon"
 
 function ThemeToggle() {
   // This hook returns two values for the current theme:

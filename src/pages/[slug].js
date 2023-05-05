@@ -3,6 +3,7 @@ import ArticleContent from "@/components/ArticleContent"
 import DateLabel from "@/components/DateLabel"
 import { getArticlesSlugs, getArticleContent } from "@/utils/articles" 
 import Balancer from "react-wrap-balancer"
+import Head from "next/head"
 
 export default function Article({ articleContent }) {
 
@@ -10,6 +11,10 @@ export default function Article({ articleContent }) {
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}
 
     return <Layout>
+        <Head>
+            <title>{articleContent.title} — Matías Baldanza</title>
+        </Head>
+
         <div className="mb-10 text-center">
             <h1
                 className="mb-4 text-4xl font-bold"
