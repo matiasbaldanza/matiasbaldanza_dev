@@ -1,0 +1,59 @@
+---
+locale: "en"
+permalink: "setup-standardjs-vscode"
+title: "How to set up StandardJS in your project"
+publishedAt: "2023-05-05"
+summary: "How to set up StandardJS in a project, run it manually and make VSCode run it on save."
+category: "tools"
+---
+
+Today, I wanted to install [StandardJS](https://standardjs.com/) in a project and, once again, **[the available documentation is incomplete](/hostile-documentation/) and doesn't provide usable instructions for what I need: making StandardJS format the code on save in VSCode**. 😡
+
+After going over a previous project, these are the steps that worked for me. _(Thanks to whoever told me how to make it work on a stream! I think the instructions were taken from a video by Miguel Ángel Durán @midudev)_
+
+## Install StandardJS in your project
+
+```bash
+pnpm install standard --save-dev
+```
+
+## If not installed, install the StandardJS plugin for VSCode
+
+The [StandardJS plugin for VSCode](https://marketplace.visualstudio.com/items?itemName=standard.vscode-standard) shows alerts editing.
+
+## Configure `package.json`
+
+For StandardJS to format the file on save, we need to add this declaration in the `package.json` file of the project:
+
+```json
+// previous settings ...
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+```
+
+I have no idea why this specific configuration needs to be referenced this way, but this works.
+
+## How to run StandardJS manually on project files
+
+To process all the files in the project, we can run this command from the terminal:
+
+```bash
+npx standard --fix
+```
+
+\*\*
+**Note:** While StandardJS fixes the format to fit its rules, it can't fix all the errors reported by the linter.
+
+Any errors that can't be fixed, will be reported in the terminal after running the script.
+
+In this example, the linter reports an error: A variable is declared but never used.
+
+```bash
+npx standard --fix
+
+standard: Use JavaScript Standard Style (https://standardjs.com)
+  /Users/[...]/src/pages/index.js:1:10: 'config' is defined but never used. (no-unused-vars)
+```
+
+To fix this error, we need to delete the variable `config` in line 1, column 10 of `src/pages/index.js`.

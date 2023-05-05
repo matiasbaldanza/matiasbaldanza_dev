@@ -1,0 +1,58 @@
+---
+locale: "es"
+permalink: "setup-standardjs-vscode"
+title: "Cómo instalar StandardJS"
+publishedAt: "2023-05-05"
+summary: "Cómo instalar StandardJS en un proyecto, ejecutarlo manualmente y hacer que VSCode lo ejecute al guardar un archivo."
+category: "tools"
+---
+
+Hoy quise instalar [StandardJS](https://standardjs.com/) en un proyecto y, nuevamente, **[la documentación disponible es incompleta](/hostile-documentation/) y no muestra lo que necesito: hacer que StandardJS formatee el código al guardar en VSCode**. 😡
+
+Después de buscar en un proyecto anterior, estos son los pasos que me funcionaron. _(¡Gracias a quién me dijo cómo hacerlo funcionar en un stream! Creo que lo tomó de un video de Miguel Ángel Durán @midudev)_
+
+## Instalar StandardJS en el proyecto
+
+```bash
+pnpm install standard --save-dev
+```
+
+## Si no está instalado, instalar el plugin de VSCode
+
+El [plugin de StandardJS para VSCode](https://marketplace.visualstudio.com/items?itemName=standard.vscode-standard) agrega las alertas mientras escribimos código.
+
+## Configurar `package.json`
+
+Para que StandardJS formatee el archivo al guardarlo, hay que agregar esta declaración en el archivo `package.json` del proyecto:
+
+```json
+// secciones anteriores ...
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+```
+
+No tengo idea de por qué hay que hacer referencia a ese archivo específico de configuración, pero es lo que funciona.
+
+## Cómo aplicar standard sobre todos los archivos del proyecto
+
+Si hay archivos escritos anteriormente y queremos ajustar el formato, desde la terminal podemos ejecutar:
+
+```bash
+npx standard --fix
+```
+
+**Nota:** StandardJS corrige el formato para ajustarse a sus reglas, pero no puede reparar todos los errores que reporte el linter.
+
+Todos los errores que no se puedan reparar, aparecen en la terminal luego de correr el script.
+
+En este ejemplo, el linter reporta un error: Una variable declarada pero no utilizada.
+
+```bash
+npx standard --fix
+
+standard: Use JavaScript Standard Style (https://standardjs.com)
+  /Users/[...]/src/pages/index.js:1:10: 'config' is defined but never used. (no-unused-vars)
+```
+
+Para corregirlo, toca ir a la línea 1, columna 10 del archivo `src/pages/index.js` y borrar la variable `config`.
