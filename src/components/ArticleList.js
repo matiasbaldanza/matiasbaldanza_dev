@@ -1,18 +1,18 @@
 import React from 'react'
 import PaginatedArticleList from './PaginatedArticleList/PaginatedArticleList'
 
-function ArticleList({ articlesData }) {
+function ArticleList ({ articlesData }) {
   return (
-      <>
-        { articlesData.length === 0 && 
+    <>
+      {articlesData.length === 0 &&
         <div className='grid h-min-screen place-content-center'>
           No articles published yet!
-        </div> }
-        <PaginatedArticleList 
-            items={articlesData}
-            itemsPerPage={10}
-        />
-      </>
+        </div>}
+      <PaginatedArticleList
+        items={articlesData}
+        itemsPerPage={10}
+      />
+    </>
   )
 }
 

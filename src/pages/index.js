@@ -1,6 +1,3 @@
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
-
 // Components
 import Layout from '@/components/Layout'
 import ArticleList from '@/components/ArticleList'
@@ -8,22 +5,19 @@ import ArticleList from '@/components/ArticleList'
 // Utils
 import { getArticlesDataSorted } from '@/utils/articles'
 
-export async function getStaticProps() {
+export async function getStaticProps () {
   const articlesData = getArticlesDataSorted()
   return {
     props: {
-      articlesData,
+      articlesData
     }
   }
 }
 
-export default function Home({ articlesData }) {
+export default function Home ({ articlesData }) {
   return (
     <Layout>
-        <ArticleList articlesData={articlesData} />
+      <ArticleList articlesData={articlesData} />
     </Layout>
-
-    
-
   )
 }

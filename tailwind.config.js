@@ -3,12 +3,12 @@ module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/app/**/*.{js,ts,jsx,tsx}',
+    './src/app/**/*.{js,ts,jsx,tsx}'
   ],
   plugins: [
     require('@tailwindcss/typography'),
-    require("daisyui"),
-  ],
+    require('daisyui')
+  ]
 /*   theme: {
     colors: {
       primary: "#570df8",
@@ -22,7 +22,7 @@ module.exports = {
       "base-100": "#ffffff",
       "base-200": "#F2F2F2",
       "base-300": "#E5E6E6",
-      "base-content": "#1f2937",  
+      "base-content": "#1f2937",
     },
   }, */
 }

@@ -1,6 +1,4 @@
-import clsx from "clsx"
-
-function PaginationButton({ disabled = false, onClick, ...props }) {
+function PaginationButton ({ disabled = false, onClick, ...props }) {
   return (
     <button
       disabled={disabled}
@@ -8,7 +6,7 @@ function PaginationButton({ disabled = false, onClick, ...props }) {
       className={props.className}
     >
       {props.children}
-    </button> 
+    </button>
   )
 }
 

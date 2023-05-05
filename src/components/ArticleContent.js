@@ -1,8 +1,8 @@
-export default function ArticleContent({ content }) {
+export default function ArticleContent ({ content }) {
   return (
-    <div 
+    <div
       className='prose prose-lg prose-slate'
-      dangerouslySetInnerHTML={{ __html: content}} 
+      dangerouslySetInnerHTML={{ __html: content }}
     />
   )
 }
