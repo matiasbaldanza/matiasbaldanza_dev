@@ -1,5 +1,6 @@
 // Components
 import DateLabel from '@/components/DateLabel'
+import ArticleTags from '@/components/ArticleTags'
 
 // Utils
 import { capitalizeFirstLetter } from '@/lib/caseUtils'
@@ -14,6 +15,7 @@ function ArticleHeader (props) {
 
   return (
     <div className='mb-10 text-center'>
+
       <DateLabel
         className='text-gray-500' options={dateFormatOptions}
         callback={capitalizeFirstLetter}
@@ -24,6 +26,10 @@ function ArticleHeader (props) {
       <h1 className='mb-4 text-4xl font-bold'>
         <Balancer>{title}</Balancer>
       </h1>
+      <ArticleTags
+        className='flex justify-center gap-2 pt-3'
+        tags={tags}
+      />
     </div>
   )
 }
