@@ -5,7 +5,7 @@ export const isExternalLink = (url) => {
 
     return currentHost !== urlHost
   } catch (error) {
-    // If the URL is not valid, return false or handthe the error
+    // If the URL is not valid, return false or handle the error
     return false
   }
 }
