@@ -16,7 +16,7 @@ function PaginatedArticleList ({ items, itemsPerPage }) {
   return (
     <>
       <ul className='flex flex-col divide-y-2 border-y-2 selection:divide-gray-200'>
-        {itemsCurrentPage.map(({ slug, title, publishedAt }) => {
+        {itemsCurrentPage.map(({ slug, title, tags, publishedAt }) => {
           return (
             <Link
               key={slug}
