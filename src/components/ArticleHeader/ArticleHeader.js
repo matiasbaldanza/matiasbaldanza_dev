@@ -11,8 +11,6 @@ function ArticleHeader (props) {
 
   const dateFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
-  console.log(props)
-
   return (
     <div className='mb-10 text-center'>
 

@@ -9,13 +9,12 @@ import ArticleHeader from '@/components/ArticleHeader'
 import { getArticlesSlugs, getArticleContent } from '@/utils/articles'
 
 export default function Article ({ articleContent }) {
-  console.log(articleContent)
-
   return (
     <Layout>
       <Head>
         <title>{articleContent.title} — Matías Baldanza</title>
       </Head>
+
       <ArticleHeader {...articleContent} />
       <ArticleContent content={articleContent.articleContentHtml} />
     </Layout>
