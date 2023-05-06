@@ -6,7 +6,7 @@ import ArticleContent from '@/components/ArticleContent'
 import ArticleHeader from '@/components/ArticleHeader'
 
 // Utils
-import { getArticlesSlugs, getArticleContent } from '@/utils/articles'
+import { getArticlesSlugs, getArticleContent } from '@/utils/articleUtils'
 
 export default function Article ({ articleContent }) {
   return (

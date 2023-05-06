@@ -3,7 +3,7 @@ import Layout from '@/components/Layout'
 import ArticleList from '@/components/ArticleList'
 
 // Utils
-import { getArticlesDataSorted } from '@/utils/articles'
+import { getArticlesDataSorted } from '@/utils/articleUtils'
 
 export async function getStaticProps () {
   const articlesData = getArticlesDataSorted()
