@@ -4,7 +4,11 @@ permalink: "setup-standardjs-vscode"
 title: "How to set up StandardJS in your project"
 publishedAt: "2023-05-05"
 summary: "How to set up StandardJS in a project, run it manually and make VSCode run it on save."
-category: "tools"
+status: "published" # draft, published
+category:
+  - "tools"
+  - "linter"
+  - "eslint"
 ---
 
 Today, I wanted to install [StandardJS](https://standardjs.com/) in a project and, once again, **[the available documentation is incomplete](/hostile-documentation/) and doesn't provide usable instructions for what I need: making StandardJS format the code on save in VSCode**. 😡
@@ -25,12 +29,21 @@ The [StandardJS plugin for VSCode](https://marketplace.visualstudio.com/items?it
 
 For StandardJS to format the file on save, we need to add this declaration in the `package.json` file of the project:
 
-```json
-// previous settings ...
-  "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+```json filename="package.json"
+{
+  // previous settings ...
+  "standard": {
+    "format": true
   }
+}
 ```
+
+// previous settings ...
+"eslintConfig": {
+"extends": "./node_modules/standard/eslintrc.json"
+}
+
+````
 
 I have no idea why this specific configuration needs to be referenced this way, but this works.
 
@@ -40,7 +53,7 @@ To process all the files in the project, we can run this command from the termin
 
 ```bash
 npx standard --fix
-```
+````
 
 \*\*
 **Note:** While StandardJS fixes the format to fit its rules, it can't fix all the errors reported by the linter.

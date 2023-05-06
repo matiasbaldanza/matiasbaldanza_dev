@@ -4,7 +4,11 @@ permalink: "setup-standardjs-vscode"
 title: "Cómo instalar StandardJS"
 publishedAt: "2023-05-05"
 summary: "Cómo instalar StandardJS en un proyecto, ejecutarlo manualmente y hacer que VSCode lo ejecute al guardar un archivo."
-category: "tools"
+status: "published" # draft, published
+category:
+  - "tools"
+  - "linter"
+  - "eslint"
 ---
 
 Hoy quise instalar [StandardJS](https://standardjs.com/) en un proyecto y, nuevamente, **[la documentación disponible es incompleta](/hostile-documentation/) y no muestra lo que necesito: hacer que StandardJS formatee el código al guardar en VSCode**. 😡
@@ -25,7 +29,7 @@ El [plugin de StandardJS para VSCode](https://marketplace.visualstudio.com/items
 
 Para que StandardJS formatee el archivo al guardarlo, hay que agregar esta declaración en el archivo `package.json` del proyecto:
 
-```json
+```json filename="package.json"
 // secciones anteriores ...
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json"
