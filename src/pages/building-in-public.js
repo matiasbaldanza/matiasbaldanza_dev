@@ -12,7 +12,7 @@ export default function Home ({ articlesData }) {
       </header>
       <section className='mb-10 [&>*]:mb-4' id='why'>
         <p>For as long as I can remember, I've been the type of person that comes up with at least a couple of project ideas <em>a day</em>, maybe starts a few projects a year, and usually finishes none.</p>
-        <p><strong>Building in public</strong> helped me break out of that loop.</p>
+        <p>Of all the things I tried, <strong>building in public</strong> is the one that's actually helping me break out of that loop.</p>
         <p>Over the past few years, the indie hacker community <em>(with <strong>indie hacker</strong> being just a fancy name for <strong> boostrapped entrepreneur</strong>)</em> has embraced the <strong>building in public</strong> label, with an obvious benefit: </p>
         <p>They get to receive early feedback from (hopefully) real users, and grow a community while they build their products.</p>
         <p>I'm not an indie hacker, but I started learning and building projects in public in September 2022 and 8 months into it (this is May 8, 2023), I've made more progress and built more projects than ever before.</p>
