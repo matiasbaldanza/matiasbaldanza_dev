@@ -1,6 +1,5 @@
-export const isExternalLink = (url) => {
+export const isExternalLink = (url, currentHost) => {
   try {
-    const currentHost = new URL(window.location.href).host
     const urlHost = new URL(url).host
 
     return currentHost !== urlHost
