@@ -19,7 +19,7 @@ function PaginatedArticleList ({ items, itemsPerPage }) {
         {itemsCurrentPage.map(({ slug, title, tags, publishedAt }) => {
           return (
             <Link key={slug} href={`${slug}`}>
-              <li className='flex items-center justify-between gap-10 p-4 hover:bg-gray-100'>
+              <li className='flex items-center justify-between gap-10 p-4 text-sm hover:bg-gray-100 sm:text-lg'>
                 <Balancer>{title}</Balancer>
                 {/* TODO: split by year or show year for articles not of current year */}
                 <DateLabel

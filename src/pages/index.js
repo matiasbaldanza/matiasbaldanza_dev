@@ -19,10 +19,9 @@ export default function Home ({ articlesData }) {
   return (
     <Layout>
       <Hero />
-      <h2
-        className='mb-6 text-3xl font-bold tracking-tight text-center'
-      >
-        Latest articles</h2>
+      <h2 className='mb-6 text-3xl font-bold tracking-tight text-center'>
+        Notes
+      </h2>
       <ArticleList articlesData={articlesData} />
     </Layout>
   )
