@@ -1,4 +1,3 @@
-import React from 'react'
 import PaginatedArticleList from './PaginatedArticleList/PaginatedArticleList'
 
 function ArticleList ({ articlesData }) {
