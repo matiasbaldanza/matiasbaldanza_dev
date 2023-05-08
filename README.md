@@ -4,15 +4,28 @@ My personal site (portfolio, blog)
 
 ## Todo
 
+- [x] Dark theme
+
+  - [x] ThemeToggle
+  - [x] next-theme
+  - [ ] Color schemes
+
+- [ ] Multi-lingual support
+
+  - [ ] Extract content to variables/json files
+  - [ ] Render articles conditionally depending on language
+  - [ ] Global state (Zustand or Context?)
+  - [ ] Language switcher
+
 - [ ] Layout
 
   - [x] Header con secciones (nav)
   - [x] Footer personalizado
-    - [ ] Call to action y links
+    - [x] Call to action y links
 
 - [ ] Secciones
 
-  - [ ] HomePage
+  - [x] HomePage
     - [ ] Bio/intro
     - [ ] Curriculum
     - [ ] Redes sociales
@@ -27,9 +40,9 @@ My personal site (portfolio, blog)
       - [ ] Live demo
       - [ ] Repo
 
-- [ ] Blog
-  - [ ] Artículos
-  - [ ] Lista de artículos
-    - [ ] Lista completa
-    - [ ] Lista paginada
+- [x] Blog
+  - [x] Artículos
+  - [x] Lista de artículos
+    - [x] Lista completa
+    - [x] Lista paginada
   - [ ] Tag cloud
