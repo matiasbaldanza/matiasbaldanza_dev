@@ -22,8 +22,8 @@ function ThemeToggle () {
       )}
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
-      <IconSun className='w-7 h-7 swap-on' />
-      <IconMoon className='w-7 h-7 swap-off' />
+      <IconSun className='w-7 h-7 swap-off' />
+      <IconMoon className='w-7 h-7 swap-on' />
       <span className='sr-only'>Toggle theme</span>
     </button>
   )
