@@ -1,7 +1,6 @@
 // Components
 import Layout from '@/components/Layout'
 import DateLabel from '@/components/DateLabel'
-import Balancer from 'react-wrap-balancer'
 
 export default function Home ({ articlesData }) {
   return (
