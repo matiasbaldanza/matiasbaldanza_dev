@@ -4,12 +4,15 @@ import Balancer from 'react-wrap-balancer'
 import { footerData } from './data/footerData'
 
 export default function Footer ({ ...props }) {
-  const baseStyles = 'mt-20 mb-6 flex flex-col gap-4 w-full text-base'
+  const baseStyles = 'mt-10 py-10 flex flex-col gap-2 w-full text-base'
   const styles = clsx(baseStyles, props.className)
   const locale = 'en'
 
+  console.log(footerData[locale].title)
+
   return (
     <footer className={styles}>
+      <h2 className='mb-6 text-2xl font-bold tracking-tight'>{footerData[locale].title}</h2>
       {footerData[locale].content.map((item, index) => (
         <p key={index}>
           <Balancer ratio={0.6}>

@@ -2,7 +2,10 @@ import Link from '../Link'
 
 export const footerData = {
   en: {
-    title: '',
+    title: (
+      <>Hey! 👋 <br />
+        I'm Matías. <br />
+      </>),
     content: [
       {
         description: (
