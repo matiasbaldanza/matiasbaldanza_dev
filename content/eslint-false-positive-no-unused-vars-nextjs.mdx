@@ -1,0 +1,34 @@
+---
+locale: "en"
+permalink: "eslint-false-positive-no-unused-vars-nextjs"
+title: "ESLint - False positive with no-unused-vars rule in Next.js"
+publishedAt: "2023-05-08"
+summary: "After installing adding an .eslintrc.json file to a Next.js project that uses ESLint, I started getting false positives from the no-unused-vars rule. This is how I fixed it."
+status: "published" # draft, published
+tags:
+  - "tools"
+  - "linter"
+  - "eslint"
+  - "fix"
+---
+
+## Problem
+
+After installing adding an .eslintrc.json file to a Next.js project that uses ESLint, I started getting false positives from the no-unused-vars rule. This is how I fixed it.
+
+The error I was getting looked like this:
+
+![ESLint error](images/articles/eslint-false-positive-no-unused-vars-nextjs/01-eslint-false-positive-no-unused-vars.png)
+
+_See the red highlight on all those files? They're all false positives!_
+_Like in the `PaginatedArticleList` import, which is clearly used a few lines below._
+
+## Solution
+
+The only thing required to fix this is to add `"next"` to the `extends` in `.eslintrc.json`.
+
+```json filename=".eslintrc.json"
+{
+  "extends": ["standard", "next"]
+}
+```
