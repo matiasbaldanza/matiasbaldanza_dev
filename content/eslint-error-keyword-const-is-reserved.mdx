@@ -1,0 +1,47 @@
+---
+locale: "en"
+permalink: "eslint-error-keyword-const-is-reserved"
+title: "ESLint - error Parsing error: The keyword const is reserved"
+publishedAt: "2023-05-07"
+summary: "After installing ESLint, I get the following error from ESLint: error Parsing Error: The Keyword const is reserved."
+status: "published" # draft, published
+tags:
+  - "tools"
+  - "linter"
+  - "eslint"
+  - "javascript"
+---
+
+## Problem
+
+After installing ESLint (or its config, StandardJS) in a NodeJS project, I got this error from ESLint:
+
+```bash
+error Parsing error: The keyword 'const' is reserved
+```
+
+from this line of code:
+
+```javascript
+const express = require("express");
+```
+
+## Solution
+
+This happens because ESLint defaults to ES5 syntax-checking. To fix this, we need to override the default so ESLint uses ES6 syntax-checking.
+
+Add a file `.eslintrc.json` to the root of the project with this content:
+
+```json filename=".eslintrc.json"
+{
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+
+  "env": {
+    "es6": true
+  }
+}
+```
+
+[Source](https://stackoverflow.com/questions/42706584/eslint-error-parsing-error-the-keyword-const-is-reserved/42706706#42706706)
