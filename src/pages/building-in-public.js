@@ -50,6 +50,30 @@ export default function Home ({ articlesData }) {
               2023-05-05
             </DateLabel>
           </li>
+          <li className='flex items-center justify-between gap-10 p-4 text-sm hover:bg-gray-100 sm:text-lg'>
+            <div className='flex flex-col gap-1'>
+              <p>Hello, World</p>
+              <p className='text-xs'>Basic static blog.</p>
+            </div>
+            <DateLabel
+              className='text-sm text-right text-gray-500 min-w-max'
+              options={{ month: 'short', day: 'numeric' }}
+            >
+              2023-08-13
+            </DateLabel>
+          </li>
+          <li className='flex items-center justify-between gap-10 p-4 text-sm hover:bg-gray-100 sm:text-lg'>
+            <div className='flex flex-col gap-1'>
+              <p>Started learning Next.js 13</p>
+              <p className='text-xs'>Next.js 13 tutorial at nextjs.org/learn</p>
+            </div>
+            <DateLabel
+              className='text-sm text-right text-gray-500 min-w-max'
+              options={{ month: 'short', day: 'numeric' }}
+            >
+              2023-08-10
+            </DateLabel>
+          </li>
         </ul>
       </section>
     </Layout>
