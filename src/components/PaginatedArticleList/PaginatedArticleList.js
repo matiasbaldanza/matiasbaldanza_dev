@@ -1,10 +1,13 @@
 import React from 'react'
+import clsx from 'clsx'
 import Link from 'next/link'
 import DateLabel from '@/components/DateLabel'
 import Balancer from 'react-wrap-balancer'
 import PaginationNav from '../PaginationNav/PaginationNav'
 
-function PaginatedArticleList ({ items, itemsPerPage }) {
+function PaginatedArticleList ({ items, itemsPerPage, ...props }) {
+  const baseStyles = 'flex flex-col divide-y-[1px] border-y-[1px] selection:divide-gray-200'
+  const styles = clsx(baseStyles, props.className)
   const [currentPage, setCurrentPage] = React.useState(1)
 
   const numPages = Math.ceil(items.length / itemsPerPage)
@@ -15,7 +18,7 @@ function PaginatedArticleList ({ items, itemsPerPage }) {
 
   return (
     <>
-      <ul className='flex flex-col divide-y-[1px] border-y-[1px] selection:divide-gray-200'>
+      <ul className={styles}>
         {itemsCurrentPage.map(({ slug, title, tags, publishedAt }) => {
           return (
             <Link key={slug} href={`${slug}`}>
