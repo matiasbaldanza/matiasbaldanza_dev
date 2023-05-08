@@ -30,7 +30,7 @@ export default function Home ({ articlesData }) {
           <li className='flex items-center justify-between gap-10 p-4 text-sm hover:bg-gray-100 sm:text-lg'>
             <div className='flex flex-col gap-1'>
               <p>Soft launch</p>
-              <p className='text-xs'>Dark mode. English. Footer. Basic styling.</p>
+              <p className='text-xs'>Dark mode. English-only. Footer. Basic styling. Initial articles.</p>
             </div>
             <DateLabel
               className='text-sm text-right text-gray-500 min-w-max'
