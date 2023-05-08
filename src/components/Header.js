@@ -9,14 +9,19 @@ export default function Header () {
         className='flex flex-col gap-1 text-xl font-bold align-center'
       >
         <span>Matías Baldanza</span>
-        <span className='no-animation w-md btn btn-xs btn-outline opacity-70 text-[0.7rem]'>
-          Building in public
-        </span>
       </Link>
       <nav>
         <ul className='flex gap-4'>
           {/*       <li className='text-gray-500 cursor-not-allowed'>Blog</li>
           <li className='text-gray-500 cursor-not-allowed'>Portfolio</li> */}
+          <li>
+            <Link
+              href='/building-in-public'
+              className='no-animation w-md btn btn-xs btn-outline opacity-70 text-[0.7rem]'
+            >
+              Building in public
+            </Link>
+          </li>
           <ThemeToggle />
         </ul>
       </nav>
