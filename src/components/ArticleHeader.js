@@ -13,7 +13,6 @@ function ArticleHeader (props) {
 
   return (
     <div className='mb-10 text-center'>
-
       <DateLabel
         className='text-gray-500' options={dateFormatOptions}
         callback={capitalizeFirstLetter}
@@ -21,7 +20,7 @@ function ArticleHeader (props) {
         {publishedAt}
       </DateLabel>
 
-      <h1 className='mb-4 text-4xl font-bold'>
+      <h1 className='my-3 text-4xl font-bold'>
         <Balancer>{title}</Balancer>
       </h1>
       <ArticleTags
