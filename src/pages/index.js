@@ -19,10 +19,16 @@ export default function Home ({ articlesData }) {
   return (
     <Layout>
       <Hero />
-      <h2 className='mb-6 text-3xl font-bold tracking-tight text-center'>
-        Notes
-      </h2>
-      <ArticleList articlesData={articlesData} />
+      <section className='mt-10'>
+        <h3 className='mb-4 text-xl font-bold tracking-tight text-left'>
+          Latest Notes
+        </h3>
+        <ArticleList
+          className='mt-10'
+          limit={3}
+          articlesData={articlesData}
+        />
+      </section>
     </Layout>
   )
 }
