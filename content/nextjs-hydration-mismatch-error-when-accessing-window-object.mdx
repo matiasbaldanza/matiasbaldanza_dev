@@ -1,0 +1,88 @@
+---
+locale: "en"
+permalink: "nextjs-hydration-mismatch-error-when-accessing-window-object"
+title: "Hydration Mismatch error in Next.js when accessing the window object"
+publishedAt: "2023-05-07"
+summary: "After installing ESLint, I get the following error from ESLint: error Parsing Error: The Keyword const is reserved."
+status: "published" # draft, published
+tags:
+  - "nextjs"
+  - "errors"
+---
+
+## Problem
+
+Today I updated a Link component to detect if a link is external or not. If it is external, I want to open the link in a new tab and show a ↗ symbol preceded by a non-breaking space `&nbsp;`. To do this, I need to access the `window` object. However, when I do this, I get the following error:
+
+![Hydration Mismatch error in Next.js](/images/articles/nextjs-hydration-mismatch-error-when-accessing-window-object/01.png)
+
+## Cause
+
+The issue is called by using the `window` object in the `isExternalLink` function. When the page is being server-side rendered, the `window` object is not available, causing the hydration mismatch.
+
+```javascript
+export const isExternalLink = (url) => {
+  try {
+    const currentHost = new URL(window.location.href).host;
+    const urlHost = new URL(url).host;
+
+    return currentHost !== urlHost;
+  } catch (error) {
+    // If the URL is not valid, return false or handle the error
+    return false;
+  }
+};
+```
+
+## Solution
+
+To fix the issue, I updated the `isExternalLink` functino to receive the current host as a parameter.
+
+```javascript
+export const isExternalLink = (url, currentHost) => {
+  try {
+    const urlHost = new URL(url).host;
+
+    return currentHost !== urlHost;
+  } catch (error) {
+    // If the URL is not valid, return false or handle the error
+    return false;
+  }
+};
+```
+
+Then, I updated the `Link` component to pass the current host as a parameter **only when rendering on the client-side** by using `useEffect` and `useState`.
+
+```jsx
+import { useState, useEffect } from "react";
+import { isExternalLink } from "@/lib/linkUtils";
+import NextLink from "next/link";
+
+export default function Link({ ...props }) {
+  const { href, children, className } = props;
+  const styles =
+    className ||
+    "py-1 font-medium underline transition-colors rounded-md underline-ring-offset-8t-3";
+  const [currentHost, setCurrentHost] = useState(null);
+
+  useEffect(() => {
+    setCurrentHost(window.location.host);
+  }, []);
+
+  const external = isExternalLink(href, currentHost);
+
+  return (
+    <>
+      <NextLink
+        href={href}
+        className={styles}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+      >
+        {children}
+        {external && <span className="no-underline">&nbsp;↗</span>}
+      </NextLink>
+    </>
+  );
+}
+```
