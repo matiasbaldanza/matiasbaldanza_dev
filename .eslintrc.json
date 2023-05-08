@@ -1,8 +1,10 @@
-// To fix/disable seemingly erroneous "No named exports found in module"
-//    errors in the CI build when using barrel exports.
 {
-    "extends": ["standard", "next"],
-/*     "rules": {
+    "extends": ["standard", "next"]
+}
+
+
+    // To fix/disable seemingly erroneous "No named exports found in module"
+    //    errors in the CI build when using barrel exports.
+    /*     "rules": {
       "import/export": "off"
     } */
-}
