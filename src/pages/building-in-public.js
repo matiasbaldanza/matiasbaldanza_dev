@@ -16,7 +16,7 @@ export default function Home ({ articlesData }) {
         <p>Over the past few years, the indie hacker community <em>(with <strong>indie hacker</strong> being just a fancy name for <strong> boostrapped entrepreneur</strong>)</em> has embraced the <strong>building in public</strong> label, with an obvious benefit: </p>
         <p>They get to receive early feedback from (hopefully) real users, and grow a community while they build their products.</p>
         <p>I'm not an indie hacker, but I started learning and building projects in public in September 2022 and 8 months into it (this is May 8, 2023), I've made more progress and built more projects than ever before.</p>
-        <p>Building in public has also brought in an unexpected benefits: A community of like-minded people that bring insights, feedback, and encouragement.</p>
+        <p>Building in public has also brought in an unexpected benefit: A community of like-minded people that bring insights, feedback, and encouragement.</p>
         <p>From time to time, I'll be sharing some of those insights and stories here and in my blog.</p>
         <p>Below, you will find a Changelog of this project.</p>
 
