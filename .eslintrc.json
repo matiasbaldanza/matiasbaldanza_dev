@@ -2,7 +2,7 @@
 //    errors in the CI build when using barrel exports.
 {
     "extends": ["standard", "next"],
-    "rules": {
+/*     "rules": {
       "import/export": "off"
-    }
+    } */
 }
