@@ -59,7 +59,7 @@ export default function Home ({ articlesData }) {
               className='text-sm text-right text-gray-500 min-w-max'
               options={{ month: 'short', day: 'numeric' }}
             >
-              2023-08-13
+              2023-04-13
             </DateLabel>
           </li>
           <li className='flex items-center justify-between gap-10 p-4 text-sm hover:bg-gray-100 sm:text-lg'>
@@ -71,7 +71,7 @@ export default function Home ({ articlesData }) {
               className='text-sm text-right text-gray-500 min-w-max'
               options={{ month: 'short', day: 'numeric' }}
             >
-              2023-08-10
+              2023-04-10
             </DateLabel>
           </li>
         </ul>
