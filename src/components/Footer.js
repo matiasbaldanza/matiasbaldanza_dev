@@ -8,8 +8,6 @@ export default function Footer ({ ...props }) {
   const styles = clsx(baseStyles, props.className)
   const locale = 'en'
 
-  console.log(footerData[locale].title)
-
   return (
     <footer className={styles}>
       <h2 className='mb-6 text-2xl font-bold tracking-tight'>{footerData[locale].title}</h2>
