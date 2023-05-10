@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import Balancer from 'react-wrap-balancer'
 
-import { footerData } from './data/footerData'
+import { footerData } from './data/footer'
 
 export default function Footer ({ ...props }) {
   const baseStyles = 'mt-10 py-10 flex flex-col gap-2 w-full text-base'

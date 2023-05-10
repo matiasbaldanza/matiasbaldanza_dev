@@ -28,6 +28,14 @@ export const footerData = {
             The easiest way to reach me is on <Link href='https://twitter.com/matiasbaldanza'>Twitter</Link>
           </>
         )
+      },
+      {
+        description: (
+          <>
+            I'm looking for my first software development job. <br />
+            Here's my  <Link href='https://www.linkedin.com/in/matiasbaldanza/'>LinkedIn</Link>
+          </>
+        )
       }
     ]
   },
@@ -53,6 +61,14 @@ export const footerData = {
         description: (
           <>
             La forma más fácil de contactarme es por <Link href='https://twitter.com/matiasbaldanza'>Twitter</Link>
+          </>
+        )
+      },
+      {
+        description: (
+          <>
+            Estoy buscando mi primer trabajo como desarrollador. <br />
+            Aquí está mi <Link href='https://www.linkedin.com/in/matiasbaldanza/'>LinkedIn</Link>
           </>
         )
       }
