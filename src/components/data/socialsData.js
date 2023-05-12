@@ -7,9 +7,9 @@ export const icons = {
 }
 
 export const nameData = {
-  first: 'Matías',
-  last: 'Baldanza',
-  full: `${this.first} ${this.last}`
+  firstName: 'Matías',
+  lastName: 'Baldanza',
+  get full () { return `${this.first} ${this.last}` }
 }
 
 export const socialsData = {
@@ -45,9 +45,7 @@ export const socialsData = {
       icon: icons.discord
     },
     es: {
-      name: 'Discord de @Goncy',
-      url: this.en.discordGoncy.url,
-      icon: icons.discord
+      name: 'Discord de @Goncy'
     }
   }
 }
