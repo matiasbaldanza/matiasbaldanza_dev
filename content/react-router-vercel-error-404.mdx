@@ -1,0 +1,40 @@
+---
+locale: "en"
+permalink: "react-router-vercel-error-404"
+title: "Error 404 when using react-router and deploying to Vercel"
+publishedAt: "2023-05-17"
+summary: "Today, after uploading a React project to Vercel, I found a weird error. Even though all pages and routes loaded correctly, if I hit reload on any page other than '/', I got a 404 error. The only thing that worked as going back to the home page. Apparently, this is a known issue with react-router and Vercel, and is solved by using Vercel rewrites."
+status: "published" # draft, published
+tags:
+  - "vercel"
+  - "errors"
+  - "react-router"
+  - "react"
+  - "fix"
+---
+
+Today, after uploading a React project to Vercel, I found a weird error. Even though all pages and routes loaded correctly, if I hit reload on any page other than '/', I got a 404 error. The only thing that worked as going back to the home page. Apparently, this is a known issue with react-router and Vercel, and is solved by using Vercel rewrites.
+
+_Thank you, [@pheralb\_](https://twitter.com/pheralb_) for the solution!\_
+
+## Problem
+
+Here is a [video showing the problem](/images/articles/error-404-react-router-vercel/error-404-react-router-vercel.mp4)
+
+![That dreaded 404 error](/images/articles/error-404-react-router-vercel/error-404-react-router-vercel.png)
+
+## Solution
+
+To fix this, we can use `vercel rewrites` to redirect all requests to '/'. To do this, we need to create a file called `vercel.json` in the root of the project with this content:
+
+```json filename="vercel.json"
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+}
+```
+
+## References
+
+- Solution: [Vercel GitHub issue #7475](https://github.com/vercel/vercel/issues/7475#issuecomment-1101659972)
+- Documentation: Additional information about [Vercel Rewrites](https://vercel.com/docs/concepts/edge-network/rewrites)
+- Documentation: [Configuring Projects with vercel.json](https://vercel.com/docs/configuration#project/rewrites).
