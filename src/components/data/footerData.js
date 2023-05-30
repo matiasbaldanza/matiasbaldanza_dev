@@ -18,7 +18,7 @@ export const footerData = {
       {
         description: (
           <>
-            Every <time dateTime='2023-05-06T09:30:00-03:00/2023-05-06T13:30:00-03:00'>Wednesday, from 19:00 to 20:00 🇦🇷 (GMT-3)</time>, I facilitate with other moderators an English conversation session at the #English voice channel on <Link href={socialsData.discordGoncy.en.url}>en el {socialsData.discordGoncy.es.name}</Link>
+            Every <time dateTime='2023-05-06T09:30:00-03:00/2023-05-06T13:30:00-03:00'>Wednesday, from 19:00 to 20:00 🇦🇷 (GMT-3)</time>, I facilitate an English conversation session at the #English voice channel on <Link href={socialsData.discordGoncy.en.url}>{socialsData.discordGoncy.en.name}</Link>
           </>
 
         )
