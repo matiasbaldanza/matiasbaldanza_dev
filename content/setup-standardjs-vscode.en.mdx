@@ -38,12 +38,13 @@ For StandardJS to format the file on save, we need to add this declaration in th
 }
 ```
 
+```
 // previous settings ...
 "eslintConfig": {
 "extends": "./node_modules/standard/eslintrc.json"
 }
 
-````
+```
 
 I have no idea why this specific configuration needs to be referenced this way, but this works.
 
@@ -53,7 +54,7 @@ To process all the files in the project, we can run this command from the termin
 
 ```bash
 npx standard --fix
-````
+```
 
 \*\*
 **Note:** While StandardJS fixes the format to fit its rules, it can't fix all the errors reported by the linter.
