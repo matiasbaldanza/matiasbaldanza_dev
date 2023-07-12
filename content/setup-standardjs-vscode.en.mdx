@@ -11,6 +11,8 @@ tags:
   - "eslint"
 ---
 
+_Last update: 2023-07-12 with configuration for Next.js projects._
+
 Today, I wanted to install [StandardJS](https://standardjs.com/) in a project and, once again, **[the available documentation is incomplete](/hostile-documentation/) and doesn't provide usable instructions for what I need: making StandardJS format the code on save in VSCode**. 😡
 
 After going over a previous project, these are the steps that worked for me. _(Thanks to whoever told me how to make it work on a stream! I think the instructions were taken from a video by Miguel Ángel Durán @midudev)_
@@ -38,7 +40,7 @@ For StandardJS to format the file on save, we need to add this declaration in th
 }
 ```
 
-```
+```json
 // previous settings ...
 "eslintConfig": {
 "extends": "./node_modules/standard/eslintrc.json"
@@ -47,6 +49,24 @@ For StandardJS to format the file on save, we need to add this declaration in th
 ```
 
 I have no idea why this specific configuration needs to be referenced this way, but this works.
+
+## UPDATE: Configure `.eslintrc.json` on Next.js projects
+
+If you are using Next.js you probably have an .eslintrc.json file in your project. You need to add the following to the file:
+
+```json filename=".eslintrc.json"
+{
+  "extends": "./node_modules/standard/eslintrc.json"
+}
+```
+
+Of course, if you already have an `extends` declaration, you can add the StandardJS configuration to the existing one, by placing all the extensions in an Array, like this:
+
+```json filename=".eslintrc.json"
+{
+  "extends": ["next/core-web-vitals", "./node_modules/standard/eslintrc.json"]
+}
+```
 
 ## How to run StandardJS manually on project files
 
