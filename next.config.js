@@ -11,7 +11,7 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'discord.matiasbaldanza.com'
+            value: 'discord.matiasbaldanza.dev'
           }
         ],
         destination: 'https://twitter.com/matiasbaldanza`',
