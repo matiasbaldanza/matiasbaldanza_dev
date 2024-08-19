@@ -11,6 +11,7 @@ export default function Home ({ articlesData }) {
         </h1>
       </header>
       <section className='mb-10 [&>*]:mb-4' id='why'>
+        <p>Párrafo nuevo</p>
         <p>For as long as I can remember, I've been the type of person that comes up with at least a couple of project ideas <em>a day</em>, maybe starts a few projects a year, and usually finishes none.</p>
         <p>Of all the things I tried, <strong>building in public</strong> is the one that's actually helping me break out of that loop.</p>
         <p>Over the past few years, the indie hacker community <em>(with <strong>indie hacker</strong> being just a fancy name for <strong> boostrapped entrepreneur</strong>)</em> has embraced the <strong>building in public</strong> label, with an obvious benefit: </p>
