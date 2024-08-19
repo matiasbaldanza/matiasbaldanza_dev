@@ -14,7 +14,7 @@ const nextConfig = {
             value: 'discord.matiasbaldanza.com'
           }
         ],
-        destination: 'https://twitter.com/`matiasbaldanza`',
+        destination: 'https://twitter.com/matiasbaldanza`',
         permanent: true
       }
     ]
