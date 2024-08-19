@@ -14,7 +14,18 @@ const nextConfig = {
             value: 'discord.matiasbaldanza.dev'
           }
         ],
-        destination: 'https://twitter.com/matiasbaldanza`',
+        destination: 'https://discord.gg/QR8hQ3WN57',
+        permanent: true
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'github.matiasbaldanza.dev'
+          }
+        ],
+        destination: 'https://github.com/matiasbaldanza',
         permanent: true
       }
     ]
